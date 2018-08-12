@@ -9,6 +9,19 @@ public class Control {
     private Producto[] almacen;
     private Producto[] ventas;
     private Factura[] facturas;
+    private Menu m;    
+
+    public Control() {
+        for (int i = 0; i < 10; i++) {
+            almacen[i]=new ProductoUnit();
+            ventas[i]=new ProductoUnit();
+            facturas[i]=new Factura();
+        } 
+    }
+    
+    
+    
+    
     
     public void	addAlmacen(){
         
