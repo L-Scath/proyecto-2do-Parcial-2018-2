@@ -20,29 +20,5 @@ public class Control {
             m = new Menu();
     }//------------Fin del Constructor por defecto------------------//
        
-    
-    
-    
-    public void	addAlmacen(){
         
-    } 
-    public void	modifyAlmacen(){
-        
-    } 
-    public double calculateIngresos(){
-        
-        return 0;
-    }
-    public double calculateEgresos(){
-        
-        return 0;
-    }
-    
-    public void top10(){
-        
-    }
-    public void bajaExistencia(){
-        
-    }    
-    
 }

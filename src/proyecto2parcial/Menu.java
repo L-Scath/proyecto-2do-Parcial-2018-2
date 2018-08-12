@@ -17,8 +17,34 @@ public class Menu {
         this.entrada =' ';
     }
     
+    
+    
+    public void	addAlmacen(){
+        
+    } 
+    public void	modifyAlmacen(){
+        
+    } 
+    public double calculateIngresos(){
+        
+        return 0;
+    }
+    public double calculateEgresos(){
+        
+        return 0;
+    }
+    
+    public void top10(){
+        
+    }
+    public void bajaExistencia(){
+        
+    }
+    
+    
+    
     public void imprimir(){//esto es una prueba
-        System.out.print("\u001B[30m");// colores (cambian con el n 30-37) para el menu
+        System.out.print("\u001B[31m");// colores (cambian con el n 30-37) para el menu
         System.out.print( (char)(9744));//simbolos para el menu
         System.out.print( (char)(9745));
         System.out.print( (char)(9746));
