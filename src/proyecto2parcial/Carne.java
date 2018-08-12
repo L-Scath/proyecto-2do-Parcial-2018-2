@@ -12,7 +12,7 @@ public class Carne extends ProductoCant{
     
     
     //-----------------Constructor parametrico------------------//
-    public Carne(boolean solido, double existencia, String codigo, String descripcion, double pCompra, double pVenta) {
+    public Carne(double existencia, String codigo, String descripcion, double pCompra, double pVenta) {
         super(existencia, codigo, descripcion, pCompra, pVenta);
     }//----------------Fin del Constructor parametrico------------------------//
     
