@@ -24,4 +24,18 @@ public class ProductoUnit extends Producto{
     }//----------------Fin del Constructor parametrico------------------------//
     
     
+    //------------------------------Getters y setters------------------------//
+    public String getMarca() {
+        return marca;
+    }
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+    public int getExistencia() {
+        return existencia;
+    }
+    public void setExistencia(int existencia) {
+        this.existencia = existencia;
+    }//---------------------------------fin de los Getters y Setters-------------------------//
+    
 }

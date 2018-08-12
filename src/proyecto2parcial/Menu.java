@@ -17,7 +17,7 @@ public class Menu {
         this.entrada =' ';
     }
     
-    public void imprimir(){
+    public void imprimir(){//esto es una prueba
         System.out.print("\u001B[30m");// colores (cambian con el n 30-37) para el menu
         System.out.print( (char)(9744));//simbolos para el menu
         System.out.print( (char)(9745));

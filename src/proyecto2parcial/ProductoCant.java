@@ -19,5 +19,14 @@ public class ProductoCant extends Producto{
    public ProductoCant(double existencia, String codigo, String descripcion, double pCompra, double pVenta) {
         super(codigo, descripcion, pCompra, pVenta);
         this.existencia = existencia;
-    }//------------Fin del Constructor parametrico-----------------------//   
+    }//------------Fin del Constructor parametrico-----------------------// 
+
+   
+    //------------------------------Getters y setters------------------------//
+    public double getExistencia() {
+        return existencia;
+    }
+    public void setExistencia(double existencia) {
+        this.existencia = existencia;
+    }//---------------------------------fin de los Getters y Setters-------------------------//   
 }

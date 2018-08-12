@@ -10,16 +10,16 @@ public class Control {
     private Producto[] ventas;
     private Factura[] facturas;
     private Menu m;    
-
+    
+    
+    //-----------------Constructor por defecto------------------//
     public Control() {
-        for (int i = 0; i < 10; i++) {
-            almacen[i]=new ProductoUnit();
-            ventas[i]=new ProductoUnit();
-            facturas[i]=new Factura();
-        } 
-    }
-    
-    
+            almacen=new Producto[15];
+            ventas =new Producto[15];
+            facturas=new Factura[15];
+            m = new Menu();
+    }//------------Fin del Constructor por defecto------------------//
+       
     
     
     

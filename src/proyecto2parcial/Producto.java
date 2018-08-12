@@ -26,4 +26,34 @@ public class Producto {
         this.pCompra = pCompra;
         this.pVenta = pVenta;
     }//----------------Fin del Constructor parametrico------------------------//
+    
+    
+
+    //------------------------------Getters y setters------------------------//
+    public String getCodigo() {
+        return codigo;
+    }
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+    public String getDescripcion() {
+        return descripcion;
+    }
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+    public double getpCompra() {
+        return pCompra;
+    }
+    public void setpCompra(double pCompra) {
+        this.pCompra = pCompra;
+    }
+    public double getpVenta() {
+        return pVenta;
+    }
+    public void setpVenta(double pVenta) {
+        this.pVenta = pVenta;
+    }//---------------------------------fin de los Getters y Setters-------------------------//
+    
+    
 }

@@ -7,6 +7,9 @@ package proyecto2parcial;
 public class Lacteo extends ProductoCant{
     private boolean solido;//---Atributo para saber si el lacteo es Liquido(false) Solido(true)---//
     
+    
+    
+    
     //-----------------Constructor por defecto------------------//
     public Lacteo() {
         super();
@@ -19,6 +22,15 @@ public class Lacteo extends ProductoCant{
         super(existencia, codigo, descripcion, pCompra, pVenta);
         this.solido = solido;
     }//----------------Fin del Constructor parametrico------------------------//
+    
+
+     //------------------------------Getters y setters------------------------//   
+    public boolean getSolido() {
+        return solido;
+    }
+    public void setSolido(boolean solido) {
+        this.solido = solido;
+    }//--------------------------fin de los Getters y Setters----------------//   
 
     
 }

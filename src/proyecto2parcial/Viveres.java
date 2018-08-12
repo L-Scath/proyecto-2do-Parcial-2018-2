@@ -6,6 +6,7 @@ package proyecto2parcial;
  */
 public class Viveres extends ProductoUnit implements Iva{
     
+    
     //-----------------Constructor por defecto------------------// 
     public Viveres() {
         super();

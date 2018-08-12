@@ -22,5 +22,7 @@ public class Enlatado extends ProductoUnit implements Iva{
     public double precioNuevo(double d){
         d *= impuesto;
         return d;
-     }//------------------------------------Fin del Metodo--------------------------------------------//         
+     }//------------------------------------Fin del Metodo--------------------------------------------//      
+    
+    
 }
