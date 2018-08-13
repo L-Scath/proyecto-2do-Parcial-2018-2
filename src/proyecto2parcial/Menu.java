@@ -1,4 +1,5 @@
 package proyecto2parcial;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -19,13 +20,13 @@ public class Menu {
     public void	addAlmacen() throws InterruptedException{     
         Scanner scanner = new Scanner(System.in);
         String auxDescripcion;
-        double auxpCompra;
-        double auxpVenta;
+        double auxpCompra=0;
+        double auxpVenta=0;
         String auxCodigo;
-        double auxExistencia;
+        double auxExistencia=0;
         String auxMarca;
         boolean auxSolido=false;
-        int auxCedula;
+        int auxCedula=0;
          do{
             auxCodigo="°°";
             System.out.println("Desea añadir Productos al Almacen?: si(S)/no(N)");                
@@ -56,15 +57,36 @@ public class Menu {
                                                 if (entrada=='1'){
                                                     System.out.println("Ingrese descripción del Producto");
                                                     auxDescripcion = scanner.nextLine();
-                                                    System.out.println("Ingrese cantidad de Producto a Agregar en Litros");
-                                                    auxExistencia =(double)scanner.nextDouble();
-                                                    System.out.println("Ingrese costo de compra del Producto");
-                                                    auxpCompra =(double)scanner.nextDouble();
-                                                    System.out.println("Ingrese el precio de venta del Producto");
-                                                    auxpVenta = scanner.nextDouble();
+                                                    do {			
+                                                        try {
+                                                            System.out.println("Ingrese cantidad de Producto a Agregar en Kilos");
+                                                            auxExistencia = scanner.nextInt();
+                                                        } catch (InputMismatchException ime){
+                                                        System.out.println("¡Cuidado! Solo puedes insertar números");
+                                                        scanner.next();
+                                                        }
+                                                    } while (auxExistencia==0);                                                    
+                                                    do {			
+                                                        try {
+                                                            System.out.println("Ingrese costo de compra del Producto");
+                                                            auxpCompra = scanner.nextInt();
+                                                        } catch (InputMismatchException ime){
+                                                        System.out.println("¡Cuidado! Solo puedes insertar números");
+                                                        scanner.next();
+                                                        }
+                                                    } while (auxpCompra==0); 
+                                                    do {			
+                                                        try {
+                                                            System.out.println("Ingrese el precio de venta del Producto");
+                                                            auxpVenta = scanner.nextInt();
+                                                        } catch (InputMismatchException ime){
+                                                        System.out.println("¡Cuidado! Solo puedes insertar números");
+                                                        scanner.next();
+                                                        }
+                                                    } while (auxpVenta==0);
                                                     cont.addAlmacenCarne(auxExistencia, auxCodigo, auxDescripcion, auxpCompra, auxpVenta);
                                                     System.out.println("Producto Añadido exitosamente");
-                                                    Thread.sleep(1000);
+                                                    Thread.sleep(1600);
                                                     band=true;
                                                 }
                                                 if (entrada=='2'){
@@ -72,12 +94,33 @@ public class Menu {
                                                     auxMarca = scanner.nextLine();                                                    
                                                     System.out.println("Ingrese descripción del Producto");
                                                     auxDescripcion = scanner.nextLine();
-                                                    System.out.println("Ingrese unidades de Producto a Agregar");
-                                                    auxExistencia = scanner.nextInt();
-                                                    System.out.println("Ingrese costo de compra del Producto");
-                                                    auxpCompra = scanner.nextDouble();
-                                                    System.out.println("Ingrese el precio de venta del Producto");
-                                                    auxpVenta = scanner.nextDouble();
+                                                    do {			
+                                                        try {
+                                                            System.out.println("Ingrese unidades de Producto a Agregar");
+                                                            auxExistencia = scanner.nextInt();
+                                                        } catch (InputMismatchException ime){
+                                                        System.out.println("¡Cuidado! Solo puedes insertar números");
+                                                        scanner.next();
+                                                        }
+                                                    } while (auxExistencia==0);
+                                                    do {			
+                                                        try {
+                                                            System.out.println("Ingrese costo de compra del Producto");
+                                                            auxpCompra = scanner.nextInt();
+                                                        } catch (InputMismatchException ime){
+                                                        System.out.println("¡Cuidado! Solo puedes insertar números");
+                                                        scanner.next();
+                                                        }
+                                                    } while (auxpCompra==0);
+                                                    do {			
+                                                        try {
+                                                            System.out.println("Ingrese el precio de venta del Producto");
+                                                            auxpVenta = scanner.nextInt();
+                                                        } catch (InputMismatchException ime){
+                                                        System.out.println("¡Cuidado! Solo puedes insertar números");
+                                                        scanner.next();
+                                                        }
+                                                    } while (auxpVenta==0);
                                                     cont.addAlmacenEnlatado(auxMarca,(int)auxExistencia, auxCodigo, auxDescripcion, auxpCompra, auxpVenta);
                                                     System.out.println("Producto Añadido exitosamente");
                                                     Thread.sleep(1000);
@@ -96,12 +139,33 @@ public class Menu {
                                                     } while (entrada!='S'||entrada!='L');  
                                                     System.out.println("Ingrese descripción del Producto");
                                                     auxDescripcion = scanner.nextLine();
-                                                    System.out.println("Ingrese cantidad de Producto a Agregar en Litros/Kilos");
-                                                    auxExistencia = scanner.nextDouble();
-                                                    System.out.println("Ingrese costo de compra del Producto");
-                                                    auxpCompra = scanner.nextDouble();
-                                                    System.out.println("Ingrese el precio de venta del Producto");
-                                                    auxpVenta = scanner.nextDouble();
+                                                    do {			
+                                                        try {
+                                                            System.out.println("Ingrese cantidad de Producto a Agregar en Kilos/Litros");
+                                                            auxExistencia = scanner.nextInt();
+                                                        } catch (InputMismatchException ime){
+                                                        System.out.println("¡Cuidado! Solo puedes insertar números");
+                                                        scanner.next();
+                                                        }
+                                                    } while (auxExistencia==0);
+                                                    do {			
+                                                        try {
+                                                            System.out.println("Ingrese costo de compra del Producto");
+                                                            auxpCompra = scanner.nextInt();
+                                                        } catch (InputMismatchException ime){
+                                                        System.out.println("¡Cuidado! Solo puedes insertar números");
+                                                        scanner.next();
+                                                        }
+                                                    } while (auxpCompra==0);
+                                                    do {			
+                                                        try {
+                                                            System.out.println("Ingrese el precio de venta del Producto");
+                                                            auxpVenta = scanner.nextInt();
+                                                        } catch (InputMismatchException ime){
+                                                        System.out.println("¡Cuidado! Solo puedes insertar números");
+                                                        scanner.next();
+                                                        }
+                                                    } while (auxpVenta==0);
                                                     cont.addAlmacenLacteo(auxSolido, auxExistencia, auxCodigo, auxDescripcion, auxpCompra, auxpVenta);                                                   
                                                     System.out.println("Producto Añadido exitosamente");
                                                     Thread.sleep(1000);
@@ -112,19 +176,39 @@ public class Menu {
                                                     auxMarca = scanner.nextLine();
                                                     System.out.println("Ingrese descripción del Producto");
                                                     auxDescripcion = scanner.nextLine();
-                                                    System.out.println("Ingrese cantidad de Producto a Agregar en Litros");
-                                                    auxExistencia = scanner.nextInt();
-                                                    System.out.println("Ingrese costo de compra del Producto");
-                                                    auxpCompra = scanner.nextDouble();
-                                                    System.out.println("Ingrese el precio de venta del Producto");
-                                                    auxpVenta = scanner.nextDouble();
+                                                    do {			
+                                                        try {
+                                                            System.out.println("Ingrese unidades de Producto a Agregar");
+                                                            auxExistencia = scanner.nextInt();
+                                                        } catch (InputMismatchException ime){
+                                                        System.out.println("¡Cuidado! Solo puedes insertar números");
+                                                        scanner.next();
+                                                        }
+                                                    } while (auxExistencia==0);
+                                                    do {			
+                                                        try {
+                                                            System.out.println("Ingrese costo de compra del Producto");
+                                                            auxpCompra = scanner.nextInt();
+                                                        } catch (InputMismatchException ime){
+                                                        System.out.println("¡Cuidado! Solo puedes insertar números");
+                                                        scanner.next();
+                                                        }
+                                                    } while (auxpCompra==0);
+                                                    do {			
+                                                        try {
+                                                            System.out.println("Ingrese el precio de venta del Producto");
+                                                            auxpVenta = scanner.nextInt();
+                                                        } catch (InputMismatchException ime){
+                                                        System.out.println("¡Cuidado! Solo puedes insertar números");
+                                                        scanner.next();
+                                                        }
+                                                    } while (auxpVenta==0);
                                                     cont.addAlmacenViveres(auxMarca,(int)auxExistencia, auxCodigo, auxDescripcion, auxpCompra, auxpVenta);                                                    
                                                     System.out.println("Producto Añadido exitosamente");
                                                     Thread.sleep(1000);
                                                     band=true;
                                                 }    
-                                            }                                  
- 
+                                            }
                                 }while(band==false);
                         menuPpal();
                         break;} 
