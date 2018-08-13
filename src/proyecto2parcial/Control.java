@@ -19,7 +19,10 @@ public class Control {
     public Producto getProducto(int n){
         return almacen[n];
     }
-
+    
+    public Producto[]getVProducto(){
+        return almacen;
+    }
     public void addAlmacenCarne(int n,double existencia, String codigo, String descripcion, double pCompra, double pVenta){
         try{
             almacen[n]=new Carne(existencia,codigo,descripcion,pCompra,pVenta);

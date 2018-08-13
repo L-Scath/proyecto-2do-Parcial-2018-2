@@ -18,20 +18,43 @@ public class Menu {
     
     public void	addAlmacen(){     
         Scanner scanner = new Scanner(System.in);
+        String auxDescripcion;
+        double auxpCompra;
+        double auxpVenta;
         String auxCodigo;
+        double auxExistencia;
+        String auxMarca;
+        boolean auxSolido;
+        int auxCedula;
+        int veces=0;
          do{
-            System.out.println("Desea añadir un Producto al Almacen?: si(S)/no(N)");                
+            
+            System.out.println("Desea añadir Productos al Almacen?: si(S)/no(N)");                
             entrada = scanner.nextLine().charAt(0);
             entrada = Character.toUpperCase(entrada);
             if(entrada=='S'||entrada=='N'){
-                switch(entrada){
+                switch(entrada){                    
                     case 'S':{
-                        System.out.println("Ingrese Codigo del Producto");
-                        auxCodigo = scanner.nextLine();
-                        for (int i = 0; i < 10; i++) {
-                            
-                        }
+                            while(cont.getProducto(veces)==null){
+                                System.out.println("Ingrese Codigo del Producto");
+                                auxCodigo = scanner.nextLine();
+                                for (int i = 0; i < cont.getVProducto().length; i++) {
+                                    if (cont.getProducto(i)!=null) {
+                                        if (auxCodigo==cont.getProducto(i).getCodigo()) {
+                                            System.out.println("El codigo ingresado ya existe en el Almacen");
+                                            System.out.println("Pulse Cualquier tecla para volver al Menu Principal");  
+                                            char x = scanner.nextLine().charAt(0);
+                                        }
+                                    }                                    
+                                }
+                                veces++;
+                                System.out.println(veces);
+                            }
+                                                
+                               
                         break;}
+                    
+                    
                     case 'N':{
                         menuPpal();
                         break;}  
@@ -104,7 +127,7 @@ public class Menu {
         }
          System.out.println("Ingrese la accion a Realizar (1-8): ");
          entrada = scanner.nextLine().charAt(0);
-         System.out.println(entrada);
+         System.out.println("opcion escogida: "+entrada);
              if (entrada=='1'){
                  addAlmacen();              
              }
