@@ -6,7 +6,7 @@ import java.util.Scanner;
  * @author Luis
  */
 public class Menu {
-    private char entrada;
+    private char entrada=' ';
     Control cont;
 
     public Menu() {
@@ -16,7 +16,7 @@ public class Menu {
     
     
     
-    public void	addAlmacen(){     
+    public void	addAlmacen() throws InterruptedException{     
         Scanner scanner = new Scanner(System.in);
         String auxDescripcion;
         double auxpCompra;
@@ -24,37 +24,110 @@ public class Menu {
         String auxCodigo;
         double auxExistencia;
         String auxMarca;
-        boolean auxSolido;
+        boolean auxSolido=false;
         int auxCedula;
-        int veces=0;
          do{
-            
+            auxCodigo="°°";
             System.out.println("Desea añadir Productos al Almacen?: si(S)/no(N)");                
             entrada = scanner.nextLine().charAt(0);
             entrada = Character.toUpperCase(entrada);
             if(entrada=='S'||entrada=='N'){
                 switch(entrada){                    
-                    case 'S':{
-                            while(cont.getProducto(veces)==null){
+                    case 'S':{  
+                                auxCodigo=" ";
                                 System.out.println("Ingrese Codigo del Producto");
                                 auxCodigo = scanner.nextLine();
-                                for (int i = 0; i < cont.getVProducto().length; i++) {
-                                    if (cont.getProducto(i)!=null) {
-                                        if (auxCodigo==cont.getProducto(i).getCodigo()) {
+                                System.out.println(cont.getVProducto().size());
+                                boolean band=false;
+                                do{
+                                    for (int i = 0; i < cont.getVProducto().size(); i++) {
+                                            if (auxCodigo==cont.getProducto(i).getCodigo()) {
                                             System.out.println("El codigo ingresado ya existe en el Almacen");
-                                            System.out.println("Pulse Cualquier tecla para volver al Menu Principal");  
-                                            char x = scanner.nextLine().charAt(0);
+                                            System.out.println("el programa se cerrara");  
+                                            System.exit(0);
+                                            band=true;
                                         }
-                                    }                                    
-                                }
-                                veces++;
-                                System.out.println(veces);
-                            }
-                                                
-                               
-                        break;}
-                    
-                    
+                                    }
+                                        if (band==false) {
+                                            do {
+                                                System.out.println("Ingrese el tipo de Producto a agregar al Almacen \n(1)Carne\n(2)Enlatado\n(3)Lacteo\n(4)Viveres");
+                                                entrada = scanner.nextLine().charAt(0);
+                                            }while (entrada!='1'&&entrada!='2'&&entrada!='2'&&entrada!='4');
+                                                if (entrada=='1'){
+                                                    System.out.println("Ingrese descripción del Producto");
+                                                    auxDescripcion = scanner.nextLine();
+                                                    System.out.println("Ingrese cantidad de Producto a Agregar en Litros");
+                                                    auxExistencia =(double)scanner.nextDouble();
+                                                    System.out.println("Ingrese costo de compra del Producto");
+                                                    auxpCompra =(double)scanner.nextDouble();
+                                                    System.out.println("Ingrese el precio de venta del Producto");
+                                                    auxpVenta = scanner.nextDouble();
+                                                    cont.addAlmacenCarne(auxExistencia, auxCodigo, auxDescripcion, auxpCompra, auxpVenta);
+                                                    System.out.println("Producto Añadido exitosamente");
+                                                    Thread.sleep(1000);
+                                                    band=true;
+                                                }
+                                                if (entrada=='2'){
+                                                    System.out.println("Ingrese Marca del Producto");
+                                                    auxMarca = scanner.nextLine();                                                    
+                                                    System.out.println("Ingrese descripción del Producto");
+                                                    auxDescripcion = scanner.nextLine();
+                                                    System.out.println("Ingrese unidades de Producto a Agregar");
+                                                    auxExistencia = scanner.nextInt();
+                                                    System.out.println("Ingrese costo de compra del Producto");
+                                                    auxpCompra = scanner.nextDouble();
+                                                    System.out.println("Ingrese el precio de venta del Producto");
+                                                    auxpVenta = scanner.nextDouble();
+                                                    cont.addAlmacenEnlatado(auxMarca,(int)auxExistencia, auxCodigo, auxDescripcion, auxpCompra, auxpVenta);
+                                                    System.out.println("Producto Añadido exitosamente");
+                                                    Thread.sleep(1000);
+                                                    band=true;                                                   
+                                                }
+                                                if (entrada=='3'){
+                                                    do {
+                                                       System.out.println("Ingrese el estado del Producto:(S)solido/(L)liquido");
+                                                        entrada = scanner.nextLine().charAt(0); 
+                                                        entrada = Character.toUpperCase(entrada);
+                                                        if (entrada=='S') {
+                                                            auxSolido=true;
+                                                        }else if (entrada=='L') {
+                                                            auxSolido=false;
+                                                        }
+                                                    } while (entrada!='S'||entrada!='L');  
+                                                    System.out.println("Ingrese descripción del Producto");
+                                                    auxDescripcion = scanner.nextLine();
+                                                    System.out.println("Ingrese cantidad de Producto a Agregar en Litros/Kilos");
+                                                    auxExistencia = scanner.nextDouble();
+                                                    System.out.println("Ingrese costo de compra del Producto");
+                                                    auxpCompra = scanner.nextDouble();
+                                                    System.out.println("Ingrese el precio de venta del Producto");
+                                                    auxpVenta = scanner.nextDouble();
+                                                    cont.addAlmacenLacteo(auxSolido, auxExistencia, auxCodigo, auxDescripcion, auxpCompra, auxpVenta);                                                   
+                                                    System.out.println("Producto Añadido exitosamente");
+                                                    Thread.sleep(1000);
+                                                    band=true;
+                                                }
+                                                if (entrada=='4'){
+                                                    System.out.println("Ingrese Marca del Producto");
+                                                    auxMarca = scanner.nextLine();
+                                                    System.out.println("Ingrese descripción del Producto");
+                                                    auxDescripcion = scanner.nextLine();
+                                                    System.out.println("Ingrese cantidad de Producto a Agregar en Litros");
+                                                    auxExistencia = scanner.nextInt();
+                                                    System.out.println("Ingrese costo de compra del Producto");
+                                                    auxpCompra = scanner.nextDouble();
+                                                    System.out.println("Ingrese el precio de venta del Producto");
+                                                    auxpVenta = scanner.nextDouble();
+                                                    cont.addAlmacenViveres(auxMarca,(int)auxExistencia, auxCodigo, auxDescripcion, auxpCompra, auxpVenta);                                                    
+                                                    System.out.println("Producto Añadido exitosamente");
+                                                    Thread.sleep(1000);
+                                                    band=true;
+                                                }    
+                                            }                                  
+ 
+                                }while(band==false);
+                        menuPpal();
+                        break;} 
                     case 'N':{
                         menuPpal();
                         break;}  
@@ -88,7 +161,7 @@ public class Menu {
     
     
     
-    public void menuPpal(){
+    public void menuPpal() throws InterruptedException{
         Scanner scanner = new Scanner(System.in);
         for (int i = 0; i < 10; i++) {
             System.out.println("\n\n\n");
