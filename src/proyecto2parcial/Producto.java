@@ -9,13 +9,15 @@ public class Producto {
     private String descripcion;//---Descripcion del Producto---//
     private double pCompra;//---Precio de compra del Producto---//
     private double pVenta;//---Precio de venta del Producto---//
-
+     private double existencia;
     //-----------------Constructor por defecto------------------//
     public Producto() {
         this.codigo = " ";
         this.descripcion = " ";
         this.pCompra = 0;
         this.pVenta = 0;
+        this.existencia = 0;
+        
     }//------------Fin del Constructor por defecto-----------------------//
     
     
@@ -51,6 +53,12 @@ public class Producto {
     public double getpVenta() {
         return pVenta;
     }
+    public double getExistencia() {
+        return existencia;
+    }
+    public void setExistencia(double existencia) {
+        this.existencia = existencia;
+    }    
     public void setpVenta(double pVenta) {
         this.pVenta = pVenta;
     }//---------------------------------fin de los Getters y Setters-------------------------//

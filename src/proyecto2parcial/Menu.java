@@ -222,8 +222,37 @@ public class Menu {
     
    
     public void	modifyAlmacen(){
+        Scanner scanner = new Scanner(System.in);
+        double modif=0;
+        int numer=0;
         
+        do {			
+            try {
+                System.out.println("¿a cual Producto le desea modificar sus existencias");
+                for (int i = 0; i <cont.getVProducto().size(); i++) {
+                 System.out.println(numer+")  "+cont.getProducto(numer).getClass().getSimpleName()+"  codigo: "+cont.getProducto(numer).getCodigo()+"  existencia: "+cont.getProducto(numer).getExistencia());
+                }
+                numer= scanner.nextInt();
+                }catch (InputMismatchException ime){
+                     System.out.println("¡Cuidado! Solo puedes insertar números");
+                     scanner.next();
+                }
+        } while (numer>0&&numer<cont.getVProducto().size()); 
+        do {			
+            try {
+                System.out.println("cuanto desea añadir?");
+                modif= scanner.nextInt();
+                }catch (InputMismatchException ime){
+                     System.out.println("¡Cuidado! Solo puedes insertar números");
+                     scanner.next();
+                }
+        } while (modif==0);
+        modif= modif+cont.getProducto(numer).getExistencia();
+        cont.getProducto(numer).setExistencia(modif);   
+        System.out.println("Existencia del producto Cambiada");
+        System.out.println(numer+")  "+cont.getProducto(numer).getClass()+"  codigo: "+cont.getProducto(numer).getCodigo()+"  existencia: "+cont.getProducto(numer).getExistencia());
     } 
+    
     public void Facturar(){
         
     } 

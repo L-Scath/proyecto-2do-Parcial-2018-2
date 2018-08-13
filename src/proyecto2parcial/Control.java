@@ -104,6 +104,5 @@ public class Control {
     public void addFacturas(Factura fac) {        
         facturas.add(fac);
     }
-       
-        
+
 }

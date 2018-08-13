@@ -31,7 +31,7 @@ public class ProductoUnit extends Producto{
     public void setMarca(String marca) {
         this.marca = marca;
     }
-    public int getExistencia() {
+    public double getExistencia() {
         return existencia;
     }
     public void setExistencia(int existencia) {
